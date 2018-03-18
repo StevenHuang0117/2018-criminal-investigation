@@ -39,6 +39,7 @@ int main(void)
 
     for(Cnt = 0; Cnt < MaxCnt; Cnt++)
     {
+        //提取10道题的答案
         a[1]  = Cnt & 0x03;
         a[2]  = (Cnt >>  2) & 0x03;
         a[3]  = (Cnt >>  4) & 0x03;
@@ -52,7 +53,7 @@ int main(void)
 
         //第1题不判断
 
-        //第2题
+        //判断第2题
         if(((a[2] == A) && (a[5] == C)) ||
            ((a[2] == B) && (a[5] == D)) ||
            ((a[2] == C) && (a[5] == A)) ||
@@ -64,7 +65,7 @@ int main(void)
             continue;
         }
 
-        //第3题
+        //判断第3题
         if(((a[3] == A) && (a[2] != a[3]) && (a[2] == a[4]) && (a[2] == a[6])) ||
            ((a[3] == B) && (a[2] != a[6]) && (a[2] == a[3]) && (a[2] == a[4])) ||
            ((a[3] == C) && (a[2] != a[3]) && (a[3] == a[4]) && (a[3] == a[6])) ||
@@ -76,7 +77,7 @@ int main(void)
             continue;
         }
 
-        //第4题
+        //判断第4题
         if(((a[4] == A) && (a[1] == a[5])) ||
            ((a[4] == B) && (a[2] == a[7])) ||
            ((a[4] == C) && (a[1] == a[9])) ||
@@ -88,7 +89,7 @@ int main(void)
             continue;
         }
 
-        //第5题
+        //判断第5题
         if(((a[5] == A) && (a[5] == a[8])) ||
            ((a[5] == B) && (a[5] == a[4])) ||
            ((a[5] == C) && (a[5] == a[9])) ||
@@ -100,7 +101,7 @@ int main(void)
             continue;
         }
 
-        //第6题
+        //判断第6题
         if(((a[6] == A) && (a[8] == a[2]) && (a[8] == a[4]))  ||
            ((a[6] == B) && (a[8] == a[1]) && (a[8] == a[6]))  ||
            ((a[6] == C) && (a[8] == a[3]) && (a[8] == a[10])) ||
@@ -112,8 +113,8 @@ int main(void)
             continue;
         }
 
-        //第7题
-        GetMinNumAnswer(&MinAnswer, &MinAnswerNum);
+        //判断第7题
+        GetMinNumAnswer(&MinAnswer, &MinAnswerNum);//获取次数最少的答案及次数
         if(((a[7] == A) && (MinAnswer == C))  ||
            ((a[7] == B) && (MinAnswer == B))  ||
            ((a[7] == C) && (MinAnswer == A))  ||
@@ -125,7 +126,7 @@ int main(void)
             continue;
         }
 
-        //第8题
+        //判断第8题
         if(((a[8] == A) && (abs(a[7]  - a[1]) != 1))  ||
            ((a[8] == B) && (abs(a[5]  - a[1]) != 1))  ||
            ((a[8] == C) && (abs(a[2]  - a[1]) != 1))  ||
@@ -137,7 +138,7 @@ int main(void)
             continue;
         }
 
-        //第9题
+        //判断第9题
         if(a[1] == a[6])
         {
             if(((a[9] == A) && (a[5] != a[6] ))  ||
@@ -165,14 +166,14 @@ int main(void)
             }
         }
 
-        //第10题
-        GetMaxNumAnswer(&MaxAnswer, &MaxAnswerNum);
+        //判断第10题
+        GetMaxNumAnswer(&MaxAnswer, &MaxAnswerNum);//获取次数最多的答案及次数
         if(((a[10] == A) && ((MaxAnswerNum - MinAnswerNum) == 3))  ||
            ((a[10] == B) && ((MaxAnswerNum - MinAnswerNum) == 2))  ||
            ((a[10] == C) && ((MaxAnswerNum - MinAnswerNum) == 4))  ||
            ((a[10] == D) && ((MaxAnswerNum - MinAnswerNum) == 1)))
         {
-            break;
+            break;//10道题答案全部符合条件，退出穷举
         }
         else
         {
@@ -181,7 +182,7 @@ int main(void)
 
     }
 
-    PrintAnswer();
+    PrintAnswer();//打印答案
     while(1);
     return 0;
 }
