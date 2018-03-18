@@ -7,7 +7,7 @@
 **
 **  Functions   : main
 **
-**  Distribution: ¡¶2018ĞÌÕì¿ÆÍÆÀíÊÔÌâ¡·½â·¨
+**  Distribution: ã€Š2018åˆ‘ä¾¦ç§‘æ¨ç†è¯•é¢˜ã€‹è§£æ³•
 **
 **
 *****************************************************************************
@@ -17,21 +17,21 @@
 #include<string.h>
 #include<math.h>
 
-//ABCD´ğ°¸¶ÔÓ¦µÄÊıÖµ
+//ABCDç­”æ¡ˆå¯¹åº”çš„æ•°å€¼
 #define A       (0)
 #define B       (1)
 #define C       (2)
 #define D       (3)
 
-int a[11] = {0};//10µÀÌâµÄ´ğ°¸, ÎªÁËÖ±¹Û£¬´´½¨11¸öÔªËØ£¬ÔªËØ0ÎŞÓÃ
+int a[11] = {0};//10é“é¢˜çš„ç­”æ¡ˆ, ä¸ºäº†ç›´è§‚ï¼Œåˆ›å»º11ä¸ªå…ƒç´ ï¼Œå…ƒç´ 0æ— ç”¨
 void GetMinNumAnswer(int *Answer, int *AnswerNum);
 void GetMaxNumAnswer(int *Answer, int *AnswerNum);
 void PrintAnswer(void);
 
 int main(void)
 {
-    int Cnt;//Çî¾ÙµÄ´ÎÊı
-    int MaxCnt = 1 << 20;//×î´óµÄ´ÎÊı
+    int Cnt;//ç©·ä¸¾çš„æ¬¡æ•°
+    int MaxCnt = 1 << 20;//æœ€å¤§çš„æ¬¡æ•°
     int MinAnswer;
     int MinAnswerNum;
     int MaxAnswer;
@@ -50,9 +50,9 @@ int main(void)
         a[9]  = (Cnt >> 16) & 0x03;
         a[10] = (Cnt >> 18) & 0x03;
 
-        //µÚ1Ìâ²»ÅĞ¶Ï
+        //ç¬¬1é¢˜ä¸åˆ¤æ–­
 
-        //µÚ2Ìâ
+        //ç¬¬2é¢˜
         if(((a[2] == A) && (a[5] == C)) ||
            ((a[2] == B) && (a[5] == D)) ||
            ((a[2] == C) && (a[5] == A)) ||
@@ -64,7 +64,7 @@ int main(void)
             continue;
         }
 
-        //µÚ3Ìâ
+        //ç¬¬3é¢˜
         if(((a[3] == A) && (a[2] != a[3]) && (a[2] == a[4]) && (a[2] == a[6])) ||
            ((a[3] == B) && (a[2] != a[6]) && (a[2] == a[3]) && (a[2] == a[4])) ||
            ((a[3] == C) && (a[2] != a[3]) && (a[3] == a[4]) && (a[3] == a[6])) ||
@@ -76,7 +76,7 @@ int main(void)
             continue;
         }
 
-        //µÚ4Ìâ
+        //ç¬¬4é¢˜
         if(((a[4] == A) && (a[1] == a[5])) ||
            ((a[4] == B) && (a[2] == a[7])) ||
            ((a[4] == C) && (a[1] == a[9])) ||
@@ -88,7 +88,7 @@ int main(void)
             continue;
         }
 
-        //µÚ5Ìâ
+        //ç¬¬5é¢˜
         if(((a[5] == A) && (a[5] == a[8])) ||
            ((a[5] == B) && (a[5] == a[4])) ||
            ((a[5] == C) && (a[5] == a[9])) ||
@@ -100,7 +100,7 @@ int main(void)
             continue;
         }
 
-        //µÚ6Ìâ
+        //ç¬¬6é¢˜
         if(((a[6] == A) && (a[8] == a[2]) && (a[8] == a[4]))  ||
            ((a[6] == B) && (a[8] == a[1]) && (a[8] == a[6]))  ||
            ((a[6] == C) && (a[8] == a[3]) && (a[8] == a[10])) ||
@@ -112,7 +112,7 @@ int main(void)
             continue;
         }
 
-        //µÚ7Ìâ
+        //ç¬¬7é¢˜
         GetMinNumAnswer(&MinAnswer, &MinAnswerNum);
         if(((a[7] == A) && (MinAnswer == C))  ||
            ((a[7] == B) && (MinAnswer == B))  ||
@@ -125,7 +125,7 @@ int main(void)
             continue;
         }
 
-        //µÚ8Ìâ
+        //ç¬¬8é¢˜
         if(((a[8] == A) && (abs(a[7]  - a[1]) != 1))  ||
            ((a[8] == B) && (abs(a[5]  - a[1]) != 1))  ||
            ((a[8] == C) && (abs(a[2]  - a[1]) != 1))  ||
@@ -137,7 +137,7 @@ int main(void)
             continue;
         }
 
-        //µÚ9Ìâ
+        //ç¬¬9é¢˜
         if(a[1] == a[6])
         {
             if(((a[9] == A) && (a[5] != a[6] ))  ||
@@ -165,7 +165,7 @@ int main(void)
             }
         }
 
-        //µÚ10Ìâ
+        //ç¬¬10é¢˜
         GetMaxNumAnswer(&MaxAnswer, &MaxAnswerNum);
         if(((a[10] == A) && ((MaxAnswerNum - MinAnswerNum) == 3))  ||
            ((a[10] == B) && ((MaxAnswerNum - MinAnswerNum) == 2))  ||
@@ -182,12 +182,12 @@ int main(void)
     }
 
     PrintAnswer();
-	while(1);
-	return 0;
+    while(1);
+    return 0;
 }
 
 
-//»ñÈ¡´ÎÊı×îÉÙµÄ´ğ°¸ÒÔ¼°ËüµÄ´ÎÊı
+//è·å–æ¬¡æ•°æœ€å°‘çš„ç­”æ¡ˆä»¥åŠå®ƒçš„æ¬¡æ•°
 void GetMinNumAnswer(int *Answer, int *AnswerNum)
 {
     int Num[4] = {0, 0, 0, 0};
@@ -215,7 +215,7 @@ void GetMinNumAnswer(int *Answer, int *AnswerNum)
 }
 
 
-//»ñÈ¡´ÎÊı×î¶àµÄ´ğ°¸ÒÔ¼°ËüµÄ´ÎÊı
+//è·å–æ¬¡æ•°æœ€å¤šçš„ç­”æ¡ˆä»¥åŠå®ƒçš„æ¬¡æ•°
 void GetMaxNumAnswer(int *Answer, int *AnswerNum)
 {
     int Num[4] = {0, 0, 0, 0};
@@ -243,7 +243,7 @@ void GetMaxNumAnswer(int *Answer, int *AnswerNum)
 }
 
 
-//´òÓ¡´ğ°¸
+//æ‰“å°ç­”æ¡ˆ
 void PrintAnswer(void)
 {
     int i;
